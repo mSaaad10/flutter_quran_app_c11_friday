@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_c11_friday/ui/home/home_screen.dart';
+import 'package:islami_c11_friday/ui/home/tabs/hadet_tab/hadeth_details/hadith_details_screen.dart';
 import 'package:islami_c11_friday/ui/home/tabs/quran_tab/quran_details/quran_details.dart';
 import 'package:islami_c11_friday/ui/splash/splash_screen.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         SplashScreen.routeName: (_) => SplashScreen(),
         HomeScreen.routeNAme: (_) => HomeScreen(),
         QuranDetailsScreen.routeName: (_) => QuranDetailsScreen(),
+        HadithDetailsScreen.routeName: (_) => HadithDetailsScreen(),
       },
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
