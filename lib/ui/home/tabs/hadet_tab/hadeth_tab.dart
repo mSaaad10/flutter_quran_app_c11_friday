@@ -36,7 +36,7 @@ class _HadethTabState extends State<HadethTab> {
                       separatorBuilder: (context, index) => Container(
                             width: double.infinity,
                             height: 2,
-                            color: Color(0xFFB7935F),
+                            color: Theme.of(context).dividerColor,
                             margin: EdgeInsets.symmetric(horizontal: 28),
                           ),
                       itemCount: hadithList.length),
