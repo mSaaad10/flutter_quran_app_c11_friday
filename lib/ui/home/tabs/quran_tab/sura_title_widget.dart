@@ -23,27 +23,27 @@ class SuraTitleWidget extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-                child: Text(
-              suraTitle,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w400),
-            )),
+              child: Text(
+                numOfVerse,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400),
+              )),
             Container(
               width: 2,
               color: Color(0xFFB7935F),
             ),
             Expanded(
-                child: Text(
-              numOfVerse,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w400),
-            ))
+                  child: Text(
+                suraTitle,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400),
+              )),
           ],
         ),
       ),

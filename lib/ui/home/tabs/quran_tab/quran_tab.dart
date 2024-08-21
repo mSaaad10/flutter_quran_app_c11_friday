@@ -244,40 +244,65 @@ class QuranTab extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-              flex: 1,
-              child: Image.asset(
-                  getImagePathByName(imageName: 'quran_header_image.png'))),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 30),
-            alignment: Alignment.center,
-            child: Text(
-              'ChapterNeme',
-              style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black),
+            flex: 1,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Column(
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: Image.asset(
+                            getImagePathByName(imageName: 'quran_header_image.png'))),
+                    Divider(color: Color(0xFFB7935F),thickness: 2,),
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Text(
+                              "عدد الآيات",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+                            )),
+                        // const SizedBox(
+                        //   height: 20,
+                        //   child: VerticalDivider(color: Color(0xFFB7935F),thickness: 2,),
+                        // ),
+                        Expanded(
+                            child: Text(
+                              "اسم السورة",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+
+                            )),
+                      ],
+                    ),
+                    Divider(color: Color(0xFFB7935F),thickness: 2,),
+                  ],
+                ),
+                VerticalDivider(color: Color(0xFFB7935F),thickness: 2,indent: 170,)
+              ],
             ),
-            decoration: BoxDecoration(
-                border: Border.symmetric(
-                    horizontal:
-                        BorderSide(color: Color(0xFFB7935F), width: 2))),
           ),
+
           Expanded(
             flex: 2,
             child: ListView.separated(
                 itemBuilder: (context, index) => SuraTitleWidget(
-                      suraTitle: suraNames[index],
-                      numOfVerse: versesNumber[index].toString(),
+                  numOfVerse: versesNumber[index].toString(),
+                  suraTitle: suraNames[index],
                       index: index,
                     ),
-                separatorBuilder: (context, index) => Divider(
+                separatorBuilder: (context, index) =>
+                    Divider(
                       height: 0,
-                      endIndent: 30,
-                      indent: 30,
+                      endIndent: 0,
+                      indent: 0,
                       color: Color(0xFFB7935F),
                     ),
+
+
                 itemCount: suraNames.length),
-          )
+          ),
         ],
       ),
     );
