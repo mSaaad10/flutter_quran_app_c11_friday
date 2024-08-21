@@ -40,9 +40,6 @@ class _HadethTabState extends State<HadethTab> {
     String fileContent =
         await rootBundle.loadString('assets/files/ahadeth.txt');
     var allAhadith = fileContent.trim().split('#');
-    allAhadith.forEach((element){
-      print(element);
-    },);
     for (int i = 0; i < allAhadith.length; i++) {
       List<String> hadithLines = allAhadith[i].trim().split('\n');
       String hadithTitle = hadithLines[0];
