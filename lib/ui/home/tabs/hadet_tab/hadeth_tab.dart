@@ -28,7 +28,15 @@ class _HadethTabState extends State<HadethTab> {
                   flex: 2,
                   child: ListView.separated(
                       itemBuilder: (context, index) =>HadithTitleWidget(hadithItem: HadithList[index] ,) ,
-                      separatorBuilder: (context, index) => Divider(color: Color(0xFF87935F),),
+                      separatorBuilder: (context, index) =>
+                          Container(
+                            width: double.infinity,
+                            height: 2,
+                            color: Theme.of(context).dividerColor,
+                            margin: EdgeInsets.symmetric(horizontal: 28),
+                          ),
+
+                          // Divider(color: Color(0xFF87935F),),
                       itemCount: HadithList.length),
                 )
               ],

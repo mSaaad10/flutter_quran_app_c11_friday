@@ -254,15 +254,17 @@ class QuranTab extends StatelessWidget {
                         flex: 1,
                         child: Image.asset(
                             getImagePathByName(imageName: 'quran_header_image.png'))),
-                    Divider(color: Color(0xFFB7935F),thickness: 2,),
+                    Divider(color:  Theme.of(context).dividerColor,thickness: 2,),
                     Row(
                       children: [
                         Expanded(
-                            child: Text(
+                            child:
+                            Text(
                               "عدد الآيات",
                               textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
-                            )),
+                            )
+                        ),
                         // const SizedBox(
                         //   height: 20,
                         //   child: VerticalDivider(color: Color(0xFFB7935F),thickness: 2,),
@@ -276,10 +278,10 @@ class QuranTab extends StatelessWidget {
                             )),
                       ],
                     ),
-                    Divider(color: Color(0xFFB7935F),thickness: 2,),
+                    Divider(color:  Theme.of(context).dividerColor,thickness: 2,),
                   ],
                 ),
-                VerticalDivider(color: Color(0xFFB7935F),thickness: 2,indent: 170,)
+                VerticalDivider(color:  Theme.of(context).dividerColor,thickness: 2,indent: 170,)
               ],
             ),
           ),
@@ -297,7 +299,7 @@ class QuranTab extends StatelessWidget {
                       height: 0,
                       endIndent: 0,
                       indent: 0,
-                      color: Color(0xFFB7935F),
+                      color:  Theme.of(context).dividerColor,
                     ),
 
 

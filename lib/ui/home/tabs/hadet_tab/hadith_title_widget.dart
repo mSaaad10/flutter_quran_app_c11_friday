@@ -24,14 +24,14 @@ class HadithTitleWidget extends StatelessWidget {
         child: Text(
           hadithItem.title,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-            color: Colors.black,
-
-          ),
+          style: Theme.of(context).textTheme.titleMedium),
+          // style: TextStyle(
+          //   fontWeight: FontWeight.bold,
+          //   fontSize: 16,
+          //   color: Colors.black,
+          //
+          // ),
         ),
-      ),
-    );
+      );
   }
 }

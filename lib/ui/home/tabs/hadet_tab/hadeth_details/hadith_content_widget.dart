@@ -14,10 +14,13 @@ class HadithContentWidget extends StatelessWidget {
           content,
           textDirection: TextDirection.rtl,
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w400
-          ),
+          style:Theme.of(context).textTheme.bodySmall?.copyWith(
+            fontSize: 18,
+          ) ,
+          // style: TextStyle(
+          //   fontSize: 20,
+          //   fontWeight: FontWeight.w400
+          // ),
         ),
       ),
     );

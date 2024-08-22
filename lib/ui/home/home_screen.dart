@@ -1,10 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_c11_friday/providers/settings_provider/settings_provider.dart';
 import 'package:islami_c11_friday/ui/home/tabs/hadet_tab/hadeth_tab.dart';
 import 'package:islami_c11_friday/ui/home/tabs/quran_tab/quran_tab.dart';
 import 'package:islami_c11_friday/ui/home/tabs/radio_tab/radio_tab.dart';
+import 'package:islami_c11_friday/ui/home/tabs/settings_tab/settings_tab.dart';
 import 'package:islami_c11_friday/ui/home/tabs/tasbeh_tab/tasbeh_tab.dart';
 import 'package:islami_c11_friday/utils/image_utils.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeNAme = '/home';
@@ -18,16 +21,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-        fit: BoxFit.fill,
-        image: AssetImage(getImagePathByName(imageName: 'main_background.png')),
-      )),
+            fit: BoxFit.fill,
+            image: AssetImage(
+                getImagePathByName(imageName: provider.getBackgroundImageName())),
+          )),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'إسلامي ',
+            AppLocalizations.of(context)!.app_title,
             style: TextStyle(
               fontSize: 30,
             ),
@@ -35,39 +40,44 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
-            canvasColor: Theme.of(context).colorScheme.primary,
+            canvasColor: Theme.of(context).colorScheme.secondary,
           ),
           child: BottomNavigationBar(
-            currentIndex: selectedIndex, // 1
+            currentIndex: selectedIndex,
             onTap: (index) {
-              // 2
-              selectedIndex = index; // 2
+
+              selectedIndex = index;
               setState(() {});
             },
             items: [
               BottomNavigationBarItem(
-                  //backgroundColor: Color(0xFFB7935F),
+                //backgroundColor: Color(0xFFB7935F),
                   icon: ImageIcon(
                       AssetImage(getImagePathByName(imageName: 'quran.png'))),
-                  label: 'Quran'),
+                  label: AppLocalizations.of(context)!.quran),
               BottomNavigationBarItem(
-                  //backgroundColor: Color(0xFFB7935F),
+                //backgroundColor: Color(0xFFB7935F),
 
                   icon: ImageIcon(AssetImage(
                       getImagePathByName(imageName: 'hadeth_ic.png'))),
-                  label: 'Hadeth'),
+                  label: AppLocalizations.of(context)!.hadith),
               BottomNavigationBarItem(
-                  //backgroundColor: Color(0xFFB7935F),
+                //backgroundColor: Color(0xFFB7935F),
 
                   icon: ImageIcon(
                       AssetImage(getImagePathByName(imageName: 'sebha.png'))),
-                  label: 'Tasbeh'),
+                  label: AppLocalizations.of(context)!.tasbeh),
               BottomNavigationBarItem(
-                  // backgroundColor: Color(0xFFB7935F),
+                // backgroundColor: Color(0xFFB7935F),
 
                   icon: ImageIcon(
                       AssetImage(getImagePathByName(imageName: 'radio.png'))),
-                  label: 'Radio'),
+                  label: AppLocalizations.of(context)!.radio),
+              BottomNavigationBarItem(
+                // backgroundColor: Color(0xFFB7935F),
+
+                  icon: Icon(Icons.settings),
+                  label: AppLocalizations.of(context)!.settings),
             ],
           ),
         ),
@@ -76,5 +86,11 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Widget> tabs = [QuranTab(), HadethTab(), TasbehTab(), RadioTab()];
+  List<Widget> tabs = [
+    QuranTab(),
+    HadethTab(),
+    TasbehTab(),
+    RadioTab(),
+    SettingsTab(),
+  ];
 }
